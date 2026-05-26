@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroFuturo | Grandes Culturas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>🌾 AgroFuturo</h1>
+        <p>Inovação e produtividade no campo</p>
+    </header>
+
+    <main class="container">
+        <!-- Abas Interativas -->
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="openTab('soja')">Soja</button>
+            <button class="tab-btn" onclick="openTab('milho')">Milho</button>
+            <button class="tab-btn" onclick="openTab('trigo')">Trigo</button>
+        </nav>
+
+        <!-- Conteúdo Soja -->
+        <section id="soja" class="tab-content active">
+            <div class="crop-grid">
+                <img src="https://unsplash.com" alt="Plantação de Soja">
+                <div>
+                    <h2>A Força da Soja</h2>
+                    <p>A soja é a principal cultura agrícola do Brasil, liderando as exportações. Ela é fundamental para a produção de óleo vegetal, biocombustíveis e ração animal em todo o mundo.</p>
+                    <ul>
+                        <li>🌱 Alta rentabilidade</li>
+                        <li>🌍 Líder em exportação</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conteúdo Milho -->
+        <section id="milho" class="tab-content">
+            <div class="crop-grid">
+                <img src="https://unsplash.com" alt="Espiga de Milho">
+                <div>
+                    <h2>O Poder do Milho</h2>
+                    <p>O milho possui uma versatilidade industrial incrível. Além da alimentação humana e animal, é a base para a produção de etanol e amidos em diversos setores.</p>
+                    <ul>
+                        <li>🌽 Dupla safra (Safrinha)</li>
+                        <li>🏭 Uso industrial diversificado</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conteúdo Trigo -->
+        <section id="trigo" class="tab-content">
+            <div class="crop-grid">
+                <img src="https://unsplash.com" alt="Campo de Trigo">
+                <div>
+                    <h2>O Valor do Trigo</h2>
+                    <p>Essencial para a segurança alimentar, o trigo é a base da panificação mundial. Seu cultivo exige clima específico e técnicas avançadas de manejo de solo.</p>
+                    <ul>
+                        <li>🌾 Base da panificação</li>
+                        <li>❄️ Cultura de inverno</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formulário de Contato -->
+        <section class="contact-section">
+            <h2>Fale com um Especialista</h2>
+            <form id="agroForm" onsubmit="enviarFormulario(event)">
+                <input type="text" placeholder="Seu Nome" required>
+                <input type="email" placeholder="Seu E-mail" required>
+                <textarea placeholder="Sua Mensagem ou Dúvida" rows="4" required></textarea>
+                <button type="submit">Enviar Mensagem</button>
+            </form>
+            <p id="formFeedback" class="hidden">✅ Mensagem enviada com sucesso!</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 AgroFuturo. Desenvolvido para o GitHub Pages.</p>
+    </footer>
+
+    <!-- Script de Interatividade -->
+    <script>
+        function openTab(cropName) {
+            const contents = document.querySelectorAll('.tab-content');
+            const buttons = document.querySelectorAll('.tab-btn');
+            
+            contents.forEach(content => content.classList.remove('active'));
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            document.getElementById(cropName).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        function enviarFormulario(event) {
+            event.preventDefault();
+            const feedback = document.getElementById('formFeedback');
+            feedback.classList.remove('hidden');
+            document.getElementById('agroForm').reset();
+            setTimeout(() => feedback.classList.add('hidden'), 4000);
+        }
+    </script>
+</body>
+</html>
